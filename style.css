@@ -93,7 +93,9 @@ body {
   cursor: pointer;
 }
 #sustain-value-display,
-#bpm-value-display {
+#bpm-value-display,
+#piano-volume-display,
+#chord-volume-display {
   font-family: monospace;
   font-size: 16px;
   min-width: 50px;
@@ -465,7 +467,11 @@ input[type="range"]::-moz-range-thumb {
 .toggle-switch input:checked + span:before {
   transform: translateX(22px);
 }
-
+.controls .slider-control.piano-volume {
+  width: 90%;
+  max-width: 400px;
+  margin-top: 15px;
+}
 .chord-options {
   display: flex;
   justify-content: center;
@@ -473,8 +479,9 @@ input[type="range"]::-moz-range-thumb {
   gap: 10px;
   margin-bottom: 20px;
   color: #bdc3c7;
+  width: 100%;
+  flex-wrap: wrap;
 }
-
 .chord-options select {
   padding: 8px 12px;
   border-radius: 6px;
@@ -484,20 +491,86 @@ input[type="range"]::-moz-range-thumb {
   font-size: 16px;
   cursor: pointer;
 }
-
-.controls .slider-control.piano-volume {
-  width: 90%;
-  max-width: 400px;
-  margin-top: 15px;
-}
-
-.chord-options {
-  width: 100%;
-  flex-wrap: wrap;
-}
-
 .chord-options .slider-control.chord-volume {
   flex-grow: 1;
   min-width: 250px;
   justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .main-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .column-left,
+  .column-right {
+    position: static;
+    height: auto;
+    overflow-y: visible;
+    width: 100%;
+    max-width: 100%;
+  }
+  .column-left {
+    order: 1;
+    justify-content: center;
+  }
+  .column-center {
+    order: 2;
+    min-width: 0;
+  }
+  .column-right {
+    order: 3;
+  }
+  #playback-controls {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .main-content-wrapper {
+    gap: 20px;
+  }
+  .select-controls,
+  .chord-options {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+  .piano-view-control {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+  #piano {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+  }
+  .chord-button {
+    width: 70px;
+    height: 70px;
+  }
+  .chord-degree {
+    font-size: 20px;
+  }
+  .chord-name {
+    font-size: 14px;
+  }
+  .controls,
+  #playback-controls,
+  #theory-panel {
+    padding: 15px;
+  }
+  .chord-options .slider-control.chord-volume {
+    width: 100%;
+    max-width: 300px;
+  }
 }
