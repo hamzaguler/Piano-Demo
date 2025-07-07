@@ -29,11 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
       acoustic_grand_piano: "Acoustic Grand Piano",
       bright_acoustic_piano: "Bright Acoustic Piano",
       electric_grand_piano: "Electric Grand Piano",
-      "honky-tonk_piano": "Honky-tonk Piano",
       electric_piano_1: "Electric Piano 1 (Rhodes)",
       electric_piano_2: "Electric Piano 2 (Wurlitzer)",
       harpsichord: "Harpsichord",
-      clavinet: "Clavinet",
     },
     "Chromatic Percussion": {
       celesta: "Celesta",
@@ -92,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
       synth_strings_2: "Synth Strings 2",
       choir_aahs: "Choir Aahs",
       voice_oohs: "Voice Oohs",
-      synth_choir: "Synth Choir",
       orchestra_hit: "Orchestra Hit",
     },
     Brass: {
@@ -133,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lead_5_charang: "Lead 5 (Charang)",
       lead_6_voice: "Lead 6 (Voice)",
       lead_7_fifths: "Lead 7 (Fifths)",
-      lead_8_bass_and_lead: "Lead 8 (Bass + Lead)",
     },
     "Synth Pad": {
       pad_1_new_age: "Pad 1 (New Age)",
@@ -153,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fx_5_brightness: "FX 5 (Brightness)",
       fx_6_goblins: "FX 6 (Goblins)",
       fx_7_echoes: "FX 7 (Echoes)",
-      fx_8_scifi: "FX 8 (Sci-fi)",
     },
     Ethnic: {
       sitar: "Sitar",
