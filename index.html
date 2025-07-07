@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>"
+    />
+    <title>Dynamic Piano with Modes & Chords</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/soundfont-player@0.12.0/dist/soundfont-player.min.js"
+      defer
+    ></script>
+    <script src="progressions.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="main-content-wrapper">
+      <div class="column-left">
+        <div id="playback-controls">
+          <h2>Playback</h2>
+
+          <div class="instrument-control">
+            <span>Instrument:</span>
+            <select id="instrument-select"></select>
+          </div>
+
+          <div class="slider-control">
+            <span>BPM:</span>
+            <input
+              type="range"
+              id="bpm-slider"
+              min="40"
+              max="200"
+              step="1"
+              value="120"
+            />
+            <span id="bpm-value-display">120</span>
+          </div>
+          <div class="loop-control global-loop">
+            <input type="checkbox" id="loop-toggle" />
+            <label for="loop-toggle">Loop Progression</label>
+          </div>
+          <button id="stop-playback-btn" disabled>Stop Playback</button>
+        </div>
+      </div>
+
+      <div class="column-center">
+        <div class="controls">
+          <div class="slider-control">
+            Sustain:
+            <input
+              type="range"
+              id="sustain-slider"
+              min="0.1"
+              max="10.0"
+              step="0.1"
+              value="5.0"
+            />
+            <span id="sustain-value-display">5.0s</span>
+          </div>
+
+          <div class="select-controls">
+            Piano Octave:
+            <select id="piano-octave-select">
+              <option>2</option>
+              <option>3</option>
+              <option selected>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+
+            Root note:
+            <select id="root-select">
+              <option>C</option>
+              <option>C#</option>
+              <option>D</option>
+              <option>D#</option>
+              <option>E</option>
+              <option>F</option>
+              <option>F#</option>
+              <option>G</option>
+              <option>G#</option>
+              <option>A</option>
+              <option>A#</option>
+              <option>B</option>
+            </select>
+
+            Mode:
+            <select id="mode-select">
+              <option value="ionian">Ionian (Major)</option>
+              <option value="dorian">Dorian</option>
+              <option value="phrygian">Phrygian</option>
+              <option value="lydian">Lydian</option>
+              <option value="mixolydian">Mixolydian</option>
+              <option value="aeolian">Aeolian (Minor)</option>
+              <option value="locrian">Locrian</option>
+            </select>
+
+            <div class="piano-view-control">
+              Chromatic Piano
+              <label class="toggle-switch">
+                <input type="checkbox" id="piano-view-toggle" />
+                <span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="slider-control piano-volume">
+            <span>Piano Vol:</span>
+            <input
+              type="range"
+              id="piano-volume-slider"
+              min="0"
+              max="2"
+              step="0.1"
+              value="1.0"
+            />
+            <span id="piano-volume-display">1.0</span>
+          </div>
+        </div>
+
+        <div id="piano"></div>
+
+        <div id="chords-container">
+          <div class="chord-options">
+            <span>Chord Octave:</span>
+            <select id="chord-octave-select">
+              <option>2</option>
+              <option selected>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+
+            <div class="slider-control chord-volume">
+              <span>Chord Vol:</span>
+              <input
+                type="range"
+                id="chord-volume-slider"
+                min="0"
+                max="2"
+                step="0.1"
+                value="0.8"
+              />
+              <span id="chord-volume-display">0.8</span>
+            </div>
+          </div>
+
+          <div id="chords"></div>
+        </div>
+      </div>
+
+      <div class="column-right">
+        <div id="theory-panel">
+          <h2>Mode Theory</h2>
+          <div id="progressions-container">
+            <h3 id="mode-name-display">Ionian (Major)</h3>
+            <ul id="progressions-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
